@@ -54,3 +54,56 @@
     transform: translateY(0) scale(1);
   }
 }
+  
+@keyframes ball-bounce-in {
+  
+  /* 從右上飛入 */
+  0%   { opacity: 0; transform: translate(80px, -80px) scaleX(.92) scaleY(1.08); }
+
+  /* 第一次落地（y = 600px）：壓扁 */
+  18%  { opacity: 1; transform: translate(0, 600px) scaleX(1.22) scaleY(.78);
+         animation-timing-function: cubic-bezier(.2,.9,.2,1); }
+
+  /* 第一次回彈（約 40% 高度） */
+  32%  { transform: translate(0, 240px) scaleX(.95)  scaleY(1.07);
+         animation-timing-function: ease-in; }
+
+  /* 第二次落地：較小擠壓 */
+  44%  { transform: translate(0, 600px) scaleX(1.12) scaleY(.88);
+         animation-timing-function: ease-out; }
+
+  /* 第二次回彈（約 20% 高度） */
+  56%  { transform: translate(0, 360px) scaleX(.98)  scaleY(1.03);
+         animation-timing-function: ease-in; }
+
+  /* 第三次落地：更小擠壓 */
+  68%  { transform: translate(0, 600px) scaleX(1.06) scaleY(.94);
+         animation-timing-function: ease-out; }
+
+  /* 第三次回彈（約 10% 高度） */
+  78%  { transform: translate(0, 540px) scaleX(.992) scaleY(1.008);
+         animation-timing-function: ease-in; }
+
+  /* 收斂回穩 */
+  88%  { transform: translate(0, 600px) scaleX(1.03) scaleY(.97); }
+  100% { transform: translate(0, 600px) scaleX(1)    scaleY(1); }
+}
+@keyframes ball-roll-left {
+  0% {
+    right: -2rem;
+    transform: translateY(600px) rotate(0deg);
+  }
+  100% {
+    right: 100vw;
+    transform: translateY(600px) rotate(-720deg);
+  }
+}
+
+.bounce-in-ball {
+  animation: ball-bounce-in 1s cubic-bezier(.4,2,.6,1);
+}
+.bounce-in-ball {
+  animation:
+    ball-bounce-in 1s cubic-bezier(.4,2,.6,1),
+    ball-roll-left 1.2s 1s linear forwards;
+}
