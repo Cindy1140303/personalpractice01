@@ -67,12 +67,31 @@ onMounted(() => {
           </h2>
         </div>
       </div>
-      <ol class="relative border-s border-neutral-200 ps-4">
-        <li v-for="e in site.experience" :key="e.title" class="mb-10 ms-4">
-          <span class="absolute -start-1.5 mt-1 w-3 h-2  bg-primary-400 rounded-full ring-4 ring-primary-50"></span>
-          <h3 class="text-lg font-semibold">{{ e.title }}</h3>
-          <time class="text-sm text-neutral-500">{{ e.time }}</time>
-          <p class="mt-2 text-neutral-700">{{ e.detail }}</p>
+      <ol class="relative flex items-center justify-between py-16">
+        <!-- 中央水平線 -->
+        <span class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 w-full h-px bg-neutral-200 z-0"></span>
+
+        <li
+          v-for="(e, idx) in site.experience"
+          :key="e.title"
+          class="relative flex-1 flex justify-center"
+        >
+          <!-- 圓點 -->
+          <span
+            class="pointer-events-none absolute top-1/2 -translate-y-1/2 z-20 w-6 h-6 bg-primary-400 rounded-full ring-4 ring-primary-100"
+          ></span>
+
+          <!-- 內容（左右在上、中央在下） -->
+          <div
+            :class="[
+              'relative z-10 w-[280px] max-w-[90vw] text-center',
+              idx === 1 ? 'mt-20 pt-20' : 'mb-20 pb-20'   // 中間往下、左右往上
+            ]"
+          >
+            <h3 class="text-xl font-semibold tracking-wide">{{ e.title }}</h3>
+            <time class="block text-sm text-neutral-500 mt-1">{{ e.time }}</time>
+            <p class="mt-2 text-neutral-700">{{ e.detail }}</p>
+          </div>
         </li>
       </ol>
     </section>

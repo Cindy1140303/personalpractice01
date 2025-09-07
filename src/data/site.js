@@ -17,10 +17,51 @@ export const site = {
     highlights: [
       "兒童程式教學設計與教材開發",
       "AI × 網站 / APP / 自動化",
-      "介面與動效：乾淨、幾何、可愛"
     ]
   },
   projects: [
+    {
+      title: "Re:Memory 語憶心聲",
+      bg:'#BA8A4D',
+      description: "跨代故事平台：AI 小光、故事接龍、生命地圖、家族樹與健腦任務。",
+      tags: ["Vue", "Django", "AI", "GCP"],
+      link: "#"
+    },
+    {
+      title: "AI 排班平台",
+      bg:'#283926',
+      description: "LSTM 模型，自動產生便利商店排班。",
+      tags: ["Python", "PyTorch", "Autoencoder"],
+      link: "#"
+    },
+    {
+      title: "營養教育互動遊戲",
+      bg:'#111111',
+      description: "211 餐盤＋小任務，引導兒童理解均衡飲食。",
+      tags: ["營養", "教育", "遊戲"],
+      link: "#"
+    },
+    {
+      title: "Re:Memory 語憶心聲",
+      bg:'#BA8A4D',
+      description: "跨代故事平台：AI 小光、故事接龍、生命地圖、家族樹與健腦任務。",
+      tags: ["Vue", "Django", "AI", "GCP"],
+      link: "#"
+    },
+    {
+      title: "AI 排班平台",
+      bg:'#283926',
+      description: "LSTM 模型，自動產生便利商店排班。",
+      tags: ["Python", "PyTorch", "Autoencoder"],
+      link: "#"
+    },
+    {
+      title: "營養教育互動遊戲",
+      bg:'#111111',
+      description: "211 餐盤＋小任務，引導兒童理解均衡飲食。",
+      tags: ["營養", "教育", "遊戲"],
+      link: "#"
+    },
     {
       title: "Re:Memory 語憶心聲",
       bg:'#BA8A4D',
