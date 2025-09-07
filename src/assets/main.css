@@ -4,12 +4,53 @@
 
 @layer base {
   html { scroll-behavior: smooth; }
+
+  /* 全站預設值（之後要微調只改這裡或用 style 覆蓋） */
+  :root{
+    --container-x: 1rem;    /* 左右 padding */
+    --container-y: 0rem;    /* 上下 padding */
+    --container-max: 72rem; /* 內容最大寬度 ≈ 1152px */
+    --container-mx: auto;   /* 水平外距：auto=置中, 0=靠左 */
+  }
 }
 
 @layer components {
-  .container-p { @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl; }
-  .section { @apply container-p py-16 sm:py-20; }
-  .card { @apply bg-white rounded-2xl shadow-lg ring-1 ring-neutral-200; }
+  /* 內容容器 */
+  .container-p{
+    max-width: 72rem;     /* ≈ 1152px */
+    margin-inline: auto;  /* 置中；不要置中就改成 0 */
+    padding-inline: 1rem; /* 左右內距 16px */
+    padding-block: 0rem;  /* 上下內距 0 */
+  }
+
+  /* 區塊：等同於容器 + 區塊上下間距 + 固定最小高度（無 var 版） */
+  .section{
+    max-width: 72rem;      /* 內容最大寬度 ≈ 1152px */
+    margin-inline: auto;   /* 水平置中；若不要置中改成 0 */
+    padding-inline: 1rem;  /* 左右內距 16px */
+    padding-block: 0rem;   /* 上下內距 0（上下空隙用下面的 py- 控制） */
+    @apply py-16 sm:py-20; /* 區塊的上下空隙（Tailwind） */
+    min-height: 100vh;     /* 固定最小高度 */
+    @screen sm { .section h2 + p { margin-top: 1.25rem; } }
+  }
+  .card{ 
+    @apply bg-white rounded-2xl shadow-lg ring-1 ring-neutral-200; 
+  }
   .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium ring-1 ring-neutral-300 hover:ring-neutral-400 transition; }
-  .tag { @apply inline-flex items-center rounded-full px-3 py-1 text-sm ring-1 ring-neutral-300; }
+  .tag { 
+    @apply inline-flex items-center rounded-full px-10 py-7 text-lg ring-1 ring-neutral-300;
+
+   }
+  .section-footer { @apply container-p py-16 sm:py-20; }
+  .skill-fade-enter-from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  .skill-fade-enter-active {
+    transition: all 0.4s cubic-bezier(.4,2,.6,1);
+  }
+  .skill-fade-enter-to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
