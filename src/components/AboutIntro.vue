@@ -46,7 +46,7 @@
 
     <!-- 裝飾圓 -->
     <div class="pointer-events-none absolute -right-8 -top-5 w-56 h-56 rounded-full bg-[#DDC692] ring-2 ring-neutral-300/50 bounce-in-ball"></div>
-    <div class="pointer-events-none absolute right-[80%] top-[40%] w-36 h-36 rounded-full ring-2 ring-neutral-300/60"></div>
+    <div class="pointer-events-none absolute right-[82%] top-[35%] w-36 h-36 rounded-full ring-2 ring-neutral-300/60"></div>
   </section>
 </template>
 
